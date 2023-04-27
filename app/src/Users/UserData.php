@@ -34,13 +34,16 @@ class UserData extends DataObject
         "Nickname" => "Varchar(255)",
         "XP" => "Int",
         "UserKey" => "Varchar(512)",
-        "SelectedSkinColor" => "Int",
-        "SelectedEyes" => "Int",
-        "SelectedMouth" => "Int",
-        "SelectedHair" => "Int",
-        "SelectedBottom" => "Int",
-        "SelectedTop" => "Int",
-        "SelectedHat" => "Int",
+    ];
+
+    private static $has_one = [
+        "SelectedEyes" => CharacterPart::class,
+        "SelectedMouth" => CharacterPart::class,
+        "SelectedHair" => CharacterPart::class,
+        "SelectedBottom" => CharacterPart::class,
+        "SelectedTop" => CharacterPart::class,
+        "SelectedHat" => CharacterPart::class,
+        "SelectedSkinColor" => CharacterPart::class,
     ];
 
     private static $many_many = [

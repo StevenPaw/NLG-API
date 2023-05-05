@@ -5,14 +5,7 @@ namespace App\Users;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Security\Permission;
-use App\CharacterDatabase\CharacterHat;
-use App\CharacterDatabase\CharacterTop;
-use App\CharacterDatabase\CharacterEyes;
-use App\CharacterDatabase\CharacterHair;
 use App\CharacterDatabase\CharacterPart;
-use App\CharacterDatabase\CharacterMouth;
-use App\CharacterDatabase\CharacterBottom;
-use App\CharacterDatabase\CharacterSkinColor;
 
 /**
  * Class \App\Database\Experience

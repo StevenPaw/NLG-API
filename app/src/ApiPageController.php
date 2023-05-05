@@ -2,6 +2,8 @@
 
 namespace {
 
+    use App\Games\Game;
+    use App\Games\HighScore;
     use App\CharacterDatabase\CharacterPart;
     use Firebase\JWT\JWT;
     use Firebase\JWT\Key;
@@ -32,7 +34,8 @@ namespace {
             "token",
             "account",
             "characterparts",
-            "changecharacter"
+            "changecharacter",
+            "addhighscore",
         ];
 
         public function index(HTTPRequest $request)
@@ -186,6 +189,38 @@ namespace {
             } else {
                 $data['Status'] = "ERROR";
                 $data['Error'] = "No UserKey, CharacterPartID or CharacterPartType provided";
+            }
+
+            $this->response->addHeader('Content-Type', 'application/json');
+            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            return json_encode($data);
+        }
+
+        public function addhighscore(HTTPRequest $request)
+        {
+            $userkey = $request->getVar("UserKey");
+            $gameid = $request->getVar("GameID");
+            $points = $request->getVar("Points");
+
+            if ($userkey && $gameid && $points) {
+                $user = UserData::get()->filter("UserKey", $userkey)->first();
+
+                if ($user) {
+                    $game = Game::get()->byID($gameid);
+
+                    HighScore::create([
+                        "Points" => $points,
+                        "ParentID" => $gameid,
+                        "UserID" => $user->ID
+                    ])->write();
+                    $data['Status'] = "OK";
+                } else {
+                    $data['Status'] = "ERROR";
+                    $data['Error'] = "No User With This UserKey Found";
+                }
+            } else {
+                $data['Status'] = "ERROR";
+                $data['Error'] = "No UserKey, GameID or Points provided";
             }
 
             $this->response->addHeader('Content-Type', 'application/json');

@@ -5,6 +5,7 @@ namespace App\Elements;
 use App\Games\Game;
 use SilverStripe\Forms\DropdownField;
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\ORM\ArrayList;
 
 /**
  * Class \App\Elements\TextImageElement
@@ -63,6 +64,10 @@ class HighscoreElement extends BaseElement
 
         $hourlyhighscore = $hourlyhighscore->sort("Points", "DESC");
 
+        //Get unique ids from $hourlyhighscore
+        //$uniqueIds = $hourlyhighscore->columnUnique("UserID");
+
+        //return $uniqueIds;
         return $hourlyhighscore;
     }
 

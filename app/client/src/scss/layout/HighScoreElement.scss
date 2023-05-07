@@ -4,6 +4,8 @@
             display: flex;
             flex-wrap: wrap;
             width: 100%;
+            align-items: center;
+            justify-content: space-between;
 
             .highscore_title {
                 text-align: center;
@@ -15,10 +17,19 @@
                 width: 100%;
 
                 &.daily, &.monthly, &.total{
-                    width: calc(100% / 3);
+                    width: calc(100% / 3 - 20px);
 
-                    .highscore_entry_user{
-                        height: 100px;
+                    .inner_list{
+                        display: block;
+                        width: 100%;
+
+                        .highscore_entry{
+                            width: 100%;
+
+                            .highscore_entry_user{
+                                height: 200px;
+                            }
+                        }
                     }
                 }
 

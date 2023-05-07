@@ -36,6 +36,7 @@ namespace {
             "characterparts",
             "changecharacter",
             "addhighscore",
+            "addxp",
         ];
 
         public function index(HTTPRequest $request)
@@ -221,6 +222,35 @@ namespace {
             } else {
                 $data['Status'] = "ERROR";
                 $data['Error'] = "No UserKey, GameID or Points provided";
+            }
+
+            $this->response->addHeader('Content-Type', 'application/json');
+            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            return json_encode($data);
+        }
+
+        public function addxp(HTTPRequest $request)
+        {
+            $userkey = $request->getVar("UserKey");
+            $xp = $request->getVar("XP");
+
+            if ($userkey && $xp) {
+                $user = UserData::get()->filter("UserKey", $userkey)->first();
+
+                if ($user) {
+                    $currentXP = $user->XP;
+
+                    $user->XP = $currentXP + $xp;
+                    $user->write();
+
+                    $data['Status'] = "OK";
+                } else {
+                    $data['Status'] = "ERROR";
+                    $data['Error'] = "No User With This UserKey Found";
+                }
+            } else {
+                $data['Status'] = "ERROR";
+                $data['Error'] = "No UserKey or XP provided";
             }
 
             $this->response->addHeader('Content-Type', 'application/json');

@@ -19,7 +19,6 @@ class HighscoreElement extends BaseElement
 
     private static $db = [
         "Text" => "HTMLText",
-        "Type" => "Varchar(255)",
     ];
 
     private static $has_one = [
@@ -40,43 +39,58 @@ class HighscoreElement extends BaseElement
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->replaceField('Type', new DropdownField('Type', 'Typ', [
-            "TotalHighscore" => "TotalHighscore",
-            "DailyHighscore" => "DailyHighscore",
-            "YearlyHighscore" => "YearlyHighscore",
-            "MonthlyHighscore" => "MonthlyHighscore",
-            "HourlyHighscore" => "HourlyHighscore",
-        ]));
         return $fields;
     }
 
-    public function getHighScores()
+    public function getTotalHighScore()
     {
-        $type = $this->Type;
         $game = $this->Game();
         $highscores = $game->Highscores();
-        if ($type == "HourlyHighscore") {
-            $highscores = $highscores->filter([
-                "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 hour")),
-            ]);
-        } else if ($type == "MonthlyHighscore") {
-            $highscores = $highscores->filter([
-                "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 month")),
-            ]);
-        } else if ($type == "YearlyHighscore") {
-            $highscores = $highscores->filter([
-                "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 year")),
-            ]);
-        } else if ($type == "DailyHighscore") {
-            $highscores = $highscores->filter([
-                "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 day")),
-            ]);
-        } else if ($type == "TotalHighscore") {
-            $highscores = $highscores;
-        }
 
-        $highscores = $highscores->sort("Points", "DESC")->limit(3);
+        $highscores = $highscores->sort("Points", "DESC");
 
         return $highscores;
+    }
+
+    public function getHourlyHighScore()
+    {
+        $game = $this->Game();
+        $hourlyhighscore = $game->Highscores();
+
+        $hourlyhighscore = $hourlyhighscore->filter([
+            "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 hour")),
+        ]);
+
+        $hourlyhighscore = $hourlyhighscore->sort("Points", "DESC");
+
+        return $hourlyhighscore;
+    }
+
+    public function getDailyHighScore()
+    {
+        $game = $this->Game();
+        $dailyhighscore = $game->Highscores();
+
+        $dailyhighscore = $dailyhighscore->filter([
+            "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 day")),
+        ]);
+
+        $dailyhighscore = $dailyhighscore->sort("Points", "DESC");
+
+        return $dailyhighscore;
+    }
+
+    public function getMonthlyHighScore()
+    {
+        $game = $this->Game();
+        $monthlyhighscore = $game->Highscores();
+
+        $monthlyhighscore = $monthlyhighscore->filter([
+            "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 month")),
+        ]);
+
+        $monthlyhighscore = $monthlyhighscore->sort("Points", "DESC");
+
+        return $monthlyhighscore;
     }
 }

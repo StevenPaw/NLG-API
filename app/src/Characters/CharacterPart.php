@@ -20,7 +20,7 @@ class CharacterPart extends DataObject
 {
     private static $db = [
         "Title" => "Varchar(255)",
-        "Type" => "Enum('None, SkinColor, Eyes, Mouth, Hair, Bottom, Top, Hat', 'None')",
+        "Type" => "Enum('None, SkinColor, Eyes, Mouth, Hair, Bottom, Top, Hat, BackDeco', 'None')",
         "RequiredXP" => "Int",
     ];
 

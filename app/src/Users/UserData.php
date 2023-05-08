@@ -20,6 +20,7 @@ use App\CharacterDatabase\CharacterPart;
  * @property int $SelectedTopID
  * @property int $SelectedHatID
  * @property int $SelectedSkinColorID
+ * @property int $SelectedBackDecoID
  * @method \App\CharacterDatabase\CharacterPart SelectedEyes()
  * @method \App\CharacterDatabase\CharacterPart SelectedMouth()
  * @method \App\CharacterDatabase\CharacterPart SelectedHair()
@@ -27,6 +28,7 @@ use App\CharacterDatabase\CharacterPart;
  * @method \App\CharacterDatabase\CharacterPart SelectedTop()
  * @method \App\CharacterDatabase\CharacterPart SelectedHat()
  * @method \App\CharacterDatabase\CharacterPart SelectedSkinColor()
+ * @method \App\CharacterDatabase\CharacterPart SelectedBackDeco()
  * @method \SilverStripe\ORM\ManyManyList|\App\CharacterDatabase\CharacterPart[] AquiredCharacterParts()
  */
 class UserData extends DataObject
@@ -45,6 +47,7 @@ class UserData extends DataObject
         "SelectedTop" => CharacterPart::class,
         "SelectedHat" => CharacterPart::class,
         "SelectedSkinColor" => CharacterPart::class,
+        "SelectedBackDeco" => CharacterPart::class,
     ];
 
     private static $many_many = [
@@ -69,6 +72,11 @@ class UserData extends DataObject
     private static $plural_name = "UserDatas";
 
     private static $url_segment = "userdata";
+
+    public function getTitle()
+    {
+        return $this->Nickname;
+    }
 
     public function onBeforeWrite()
     {
@@ -110,6 +118,10 @@ class UserData extends DataObject
         $fields->removeByName("SelectedSkinColor");
         $partsmap = CharacterPart::get()->filter('Type', "SkinColor")->map('ID', 'Title');
         $fields->insertAfter('SelectedSkinColorID', new DropdownField('SelectedSkinColorID', 'Selected SkinColor', $partsmap));
+
+        $fields->removeByName("SelectedBackDeco");
+        $partsmap = CharacterPart::get()->filter('Type', "BackDeco")->map('ID', 'Title');
+        $fields->insertAfter('SelectedBackDecoID', new DropdownField('SelectedBackDecoID', 'Selected BackDeco', $partsmap));
 
         return $fields;
     }

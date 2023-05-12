@@ -57,14 +57,14 @@ class HighscoreElement extends BaseElement
         $game = $this->Game();
         $hourlyhighscore = $game->Highscores();
 
-        if($hourlyhighscore->count() <= 0) {
+        if ($hourlyhighscore->count() <= 0) {
             return new ArrayList();
         }
         $hourlyhighscore = $hourlyhighscore->filter([
             "Created:GreaterThan" => date("Y-m-d H:i:s", strtotime("-1 hour")),
         ]);
 
-        if($hourlyhighscore->count() <= 0) {
+        if ($hourlyhighscore->count() <= 0) {
             return new ArrayList();
         }
         $hourlyhighscore = $hourlyhighscore->sort("Points", "ASC");

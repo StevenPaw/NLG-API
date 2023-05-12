@@ -18,6 +18,7 @@
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
                                 <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <div class="highscore_entry_user">
+                                    <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
                                     <div class="user_part eyes">$User.SelectedEyes.Image</div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>
@@ -41,6 +42,7 @@
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
                                 <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <div class="highscore_entry_user">
+                                    <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
                                     <div class="user_part eyes">$User.SelectedEyes.Image</div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>
@@ -64,6 +66,7 @@
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
                                 <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <div class="highscore_entry_user">
+                                    <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
                                     <div class="user_part eyes">$User.SelectedEyes.Image</div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>
@@ -87,6 +90,7 @@
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
                                 <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <div class="highscore_entry_user">
+                                    <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
                                     <div class="user_part eyes">$User.SelectedEyes.Image</div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>

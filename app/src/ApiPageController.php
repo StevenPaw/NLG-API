@@ -181,6 +181,8 @@ namespace {
                         $user->SelectedTopID = $characterpartid;
                     } else if ($characterparttype == "Hat") {
                         $user->SelectedHatID = $characterpartid;
+                    } else if ($characterparttype == "BackDeco") {
+                        $user->SelectedBackDecoID = $characterpartid;
                     }
                     $user->write();
                 } else {

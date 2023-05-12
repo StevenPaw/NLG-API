@@ -48,7 +48,7 @@ namespace {
             $data['Copyright'] = "This API is developed and maintained by Steffen Kahl. All rights reserved.";
 
             $this->response->addHeader('Content-Type', 'application/json');
-            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            //$this->response->addHeader('Access-Control-Allow-Origin', '*');
             return json_encode($data);
         }
 
@@ -113,7 +113,7 @@ namespace {
             }
 
             $this->response->addHeader('Content-Type', 'application/json');
-            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            //$this->response->addHeader('Access-Control-Allow-Origin', '*');
             return json_encode($data);
         }
 
@@ -151,7 +151,7 @@ namespace {
             }
 
             $this->response->addHeader('Content-Type', 'application/json');
-            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            //$this->response->addHeader('Access-Control-Allow-Origin', '*');
             return json_encode($data);
         }
 
@@ -193,7 +193,7 @@ namespace {
             }
 
             $this->response->addHeader('Content-Type', 'application/json');
-            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            //$this->response->addHeader('Access-Control-Allow-Origin', '*');
             return json_encode($data);
         }
 
@@ -225,7 +225,7 @@ namespace {
             }
 
             $this->response->addHeader('Content-Type', 'application/json');
-            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            //$this->response->addHeader('Access-Control-Allow-Origin', '*');
             return json_encode($data);
         }
 
@@ -254,7 +254,7 @@ namespace {
             }
 
             $this->response->addHeader('Content-Type', 'application/json');
-            $this->response->addHeader('Access-Control-Allow-Origin', '*');
+            //$this->response->addHeader('Access-Control-Allow-Origin', '*');
             return json_encode($data);
         }
 

@@ -1,12 +1,10 @@
-<div class="section section--highscore">
-    <div class="section_content">
-        <div class="highscore_text">
-            <div class="textimage_text_content">
-                <h2 class="textimage_text_title">$Title</h2>
-                $Text
-            </div>
-        </div>
+<div class="highscorepage">
+    <div class="background_image">
+        <img src="$Game.BackgroundImage.FocusFill(1920,1080).Url"/>
+    </div>
+    <h1>$Game.Title</h1>
 
+    <div class="section_content">
 
         <div class="highscore_list">
             <% if not $Game %>
@@ -19,17 +17,19 @@
                         <% loop $HourlyHighScore.Limit(5) %>
                             <div class="highscore_entry">
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
-                                <h4 class="highscore_entry_name">$User.Nickname</h4>
-                                <div class="highscore_entry_user">
+                                <div class="highscore_entry_user" data-behaviour="character">
                                     <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
-                                    <div class="user_part eyes">$User.SelectedEyes.Image</div>
+                                    <div class="user_part">
+                                        <div class="eyes">$User.SelectedEyes.Image</div>
+                                    </div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>
                                     <div class="user_part">$User.SelectedHair.Image</div>
                                     <div class="user_part">$User.SelectedBottom.Image</div>
                                     <div class="user_part">$User.SelectedTop.Image</div>
                                     <div class="user_part">$User.SelectedHat.Image</div>
                                 </div>
+                                <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <h4 class="highscore_entry_score">$Points Punkte</h4>
                                 <h4 class="highscore_entry_date">$Created</h4>
                             </div>
@@ -43,17 +43,19 @@
                         <% loop $DailyHighScore.Limit(1) %>
                             <div class="highscore_entry">
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
-                                <h4 class="highscore_entry_name">$User.Nickname</h4>
-                                <div class="highscore_entry_user">
+                                <div class="highscore_entry_user" data-behaviour="character">
                                     <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
-                                    <div class="user_part eyes">$User.SelectedEyes.Image</div>
+                                    <div class="user_part">
+                                        <div class="eyes">$User.SelectedEyes.Image</div>
+                                    </div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>
                                     <div class="user_part">$User.SelectedHair.Image</div>
                                     <div class="user_part">$User.SelectedBottom.Image</div>
                                     <div class="user_part">$User.SelectedTop.Image</div>
                                     <div class="user_part">$User.SelectedHat.Image</div>
                                 </div>
+                                <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <h4 class="highscore_entry_score">$Points Punkte</h4>
                                 <h4 class="highscore_entry_date">$Created</h4>
                             </div>
@@ -67,17 +69,19 @@
                         <% loop $MonthlyHighScore.Limit(1) %>
                             <div class="highscore_entry">
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
-                                <h4 class="highscore_entry_name">$User.Nickname</h4>
-                                <div class="highscore_entry_user">
+                                <div class="highscore_entry_user" data-behaviour="character">
                                     <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
-                                    <div class="user_part eyes">$User.SelectedEyes.Image</div>
+                                    <div class="user_part">
+                                        <div class="eyes">$User.SelectedEyes.Image</div>
+                                    </div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>
                                     <div class="user_part">$User.SelectedHair.Image</div>
                                     <div class="user_part">$User.SelectedBottom.Image</div>
                                     <div class="user_part">$User.SelectedTop.Image</div>
                                     <div class="user_part">$User.SelectedHat.Image</div>
                                 </div>
+                                <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <h4 class="highscore_entry_score">$Points Punkte</h4>
                                 <h4 class="highscore_entry_date">$Created</h4>
                             </div>
@@ -91,17 +95,19 @@
                         <% loop $TotalHighScore.Limit(1) %>
                             <div class="highscore_entry">
                                 <h3 class="highscore_entry_pos">Platz $Pos</h3>
-                                <h4 class="highscore_entry_name">$User.Nickname</h4>
-                                <div class="highscore_entry_user">
+                                <div class="highscore_entry_user" data-behaviour="character">
                                     <div class="user_part">$User.SelectedBackDeco.Image</div>
                                     <div class="user_part">$User.SelectedSkinColor.Image</div>
-                                    <div class="user_part eyes">$User.SelectedEyes.Image</div>
+                                    <div class="user_part">
+                                        <div class="eyes">$User.SelectedEyes.Image</div>
+                                    </div>
                                     <div class="user_part">$User.SelectedMouth.Image</div>
                                     <div class="user_part">$User.SelectedHair.Image</div>
                                     <div class="user_part">$User.SelectedBottom.Image</div>
                                     <div class="user_part">$User.SelectedTop.Image</div>
                                     <div class="user_part">$User.SelectedHat.Image</div>
                                 </div>
+                                <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <h4 class="highscore_entry_score">$Points Punkte</h4>
                                 <h4 class="highscore_entry_date">$Created</h4>
                             </div>
@@ -114,3 +120,5 @@
         </div>
     </div>
 </div>
+
+<meta http-equiv="refresh" content="20">

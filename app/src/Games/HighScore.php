@@ -54,4 +54,10 @@ class HighScore extends DataObject
     private static $plural_name = "Highscores";
 
     private static $url_segment = "highscore";
+
+    public function getCreatedFormatted()
+    {
+        $date = new DateTime($this->Created);
+        return $date->format("d.m.y | H:i");
+    }
 }

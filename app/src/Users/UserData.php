@@ -34,7 +34,7 @@ use App\CharacterDatabase\CharacterPart;
 class UserData extends DataObject
 {
     private static $db = [
-        "Nickname" => "Varchar(255)",
+        "Nickname" => "Varchar(26)",
         "XP" => "Int",
         "UserKey" => "Varchar(512)",
     ];

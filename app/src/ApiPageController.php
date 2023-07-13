@@ -100,6 +100,7 @@ namespace {
                         foreach ($user->AquiredCharacterParts() as $part) {
                             $data['User']['AquiredCharacterParts'][$part->ID] = $part->toMap();
                             $data['User']['AquiredCharacterParts'][$part->ID]['Image'] = $part->Image()->AbsoluteLink();
+                            $data['User']['AquiredCharacterParts'][$part->ID]['PreviewImage'] = $part->PreviewImage()->AbsoluteLink();
                             unset($data['User']['AquiredCharacterParts'][$part->ID]['ClassName']);
                             unset($data['User']['AquiredCharacterParts'][$part->ID]['ImageID']);
                             unset($data['User']['AquiredCharacterParts'][$part->ID]['RecordClassName']);
@@ -126,10 +127,13 @@ namespace {
                     $data['Status'] = "OK";
                     $data['CharacterPart'] = $characterPart->toMap();
                     $data['CharacterPart']['Image'] = $characterPart->Image()->AbsoluteLink();
+                    $data['CharacterPart']['PreviewImage'] = $characterPart->PreviewImage()->AbsoluteLink();
                     unset($data['CharacterPart']['ClassName']);
                     unset($data['CharacterPart']['ImageID']);
                     unset($data['CharacterPart']['RecordClassName']);
                     unset($data['CharacterPart']['Created']);
+                    unset($data['CharacterPart']['ImageID']);
+                    unset($data['CharacterPart']['PreviewImageID']);
                 } else {
                     $data['Status'] = "ERROR";
                     $data['Error'] = "No CharacterPart With This ID Found";
@@ -143,10 +147,13 @@ namespace {
                 foreach ($characterParts as $part) {
                     $data['CharacterParts'][$part->ID] = $part->toMap();
                     $data['CharacterParts'][$part->ID]['Image'] = $part->Image()->AbsoluteLink();
+                    $data['CharacterParts'][$part->ID]['PreviewImage'] = $part->PreviewImage()->AbsoluteLink();
                     unset($data['CharacterParts'][$part->ID]['ClassName']);
                     unset($data['CharacterParts'][$part->ID]['ImageID']);
                     unset($data['CharacterParts'][$part->ID]['RecordClassName']);
                     unset($data['CharacterParts'][$part->ID]['Created']);
+                    unset($data['CharacterParts'][$part->ID]['ImageID']);
+                    unset($data['CharacterParts'][$part->ID]['PreviewImageID']);
                 }
             }
 

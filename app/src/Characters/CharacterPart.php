@@ -14,7 +14,9 @@ use SilverStripe\Security\Permission;
  * @property string $Type
  * @property int $RequiredXP
  * @property int $ImageID
+ * @property int $PreviewImageID
  * @method \SilverStripe\Assets\Image Image()
+ * @method \SilverStripe\Assets\Image PreviewImage()
  */
 class CharacterPart extends DataObject
 {
@@ -26,10 +28,12 @@ class CharacterPart extends DataObject
 
     private static $has_one = [
         "Image" => Image::class,
+        "PreviewImage" => Image::class,
     ];
 
     private static $owns = [
         "Image",
+        "PreviewImage",
     ];
 
     private static $belongs_many = [

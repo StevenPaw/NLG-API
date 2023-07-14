@@ -89,11 +89,6 @@ namespace {
                         $user->Nickname = $nickname;
                         $newuserkey = md5($nickname . time() . $randomkey);
                         $user->UserKey = $newuserkey;
-                        $user->SelectedBackDeco()->add(CharacterPart::get()->filter("Name", "BackDeco")->first());
-                        $user->SelectedBody()->add(CharacterPart::get()->filter("Name", "Body")->first());
-                        $user->SelectedEyes()->add(CharacterPart::get()->filter("Name", "Eyes")->first());
-                        $user->SelectedHead()->add(CharacterPart::get()->filter("Name", "Head")->first());
-                        $user->SelectedMouth()->add(CharacterPart::get()->filter("Name", "Mouth")->first());
                         $user->write();
 
                         $data['Status'] = "OK";

@@ -2,7 +2,9 @@
 
 namespace App\Elements;
 
+use App\CharacterDatabase\CharacterPart;
 use App\Games\Game;
+use App\Users\UserData;
 use SilverStripe\Forms\DropdownField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\ORM\ArrayList;
@@ -106,5 +108,20 @@ class HighscoreElement extends BaseElement
         $monthlyhighscore = $monthlyhighscore->sort("Points", "DESC");
 
         return $monthlyhighscore;
+    }
+
+    public function getExampleCharacter()
+    {
+        $exampleCharacter = UserData::create();
+        $exampleCharacter->Nickname = "Example";
+        $exampleCharacter->HatID = CharacterPart::get()->filter(["PartType" => "Hat"])->first()->ID;
+        $exampleCharacter->TopID = CharacterPart::get()->filter(["PartType" => "Top"])->first()->ID;
+        $exampleCharacter->EyesID = CharacterPart::get()->filter(["PartType" => "Eyes"])->first()->ID;
+        $exampleCharacter->HairID = CharacterPart::get()->filter(["PartType" => "Hair"])->first()->ID;
+        $exampleCharacter->MouthID = CharacterPart::get()->filter(["PartType" => "Mouth"])->first()->ID;
+        $exampleCharacter->BottomID = CharacterPart::get()->filter(["PartType" => "Bottom"])->first()->ID;
+        $exampleCharacter->SkinColorID = CharacterPart::get()->filter(["PartType" => "SkinColor"])->first()->ID;
+
+        return $exampleCharacter;
     }
 }

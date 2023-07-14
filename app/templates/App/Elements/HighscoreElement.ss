@@ -22,9 +22,21 @@
                                 <h4 class="highscore_entry_name">$User.Nickname</h4>
                                 <div class="highscore_entry_user">
                                     <div class="user_part">$User.SelectedBackDeco.Image</div>
-                                    <div class="user_part">$User.SelectedSkinColor.Image</div>
-                                    <div class="user_part eyes">$User.SelectedEyes.Image</div>
-                                    <div class="user_part">$User.SelectedMouth.Image</div>
+                                    <% if $User.SelectedSkinColor %>
+                                        <div class="user_part">$User.SelectedSkinColor.Image</div>
+                                    <% else %>
+                                        <div class="user_part">$ExampleCharacter.SelectedSkinColor.Image</div>
+                                    <% end_if %>
+                                    <% if $User.SelectedEyes %>
+                                        <div class="user_part eyes">$User.SelectedEyes.Image</div>
+                                    <% else %>
+                                        <div class="user_part">$ExampleCharacter.SelectedEyes.Image</div>
+                                    <% end_if %>
+                                    <% if $User.SelectedMouth %>
+                                        <div class="user_part">$User.SelectedMouth.Image</div>
+                                    <% else %>
+                                        <div class="user_part">$ExampleCharacter.SelectedMouth.Image</div>
+                                    <% end_if %>
                                     <div class="user_part">$User.SelectedHair.Image</div>
                                     <div class="user_part">$User.SelectedBottom.Image</div>
                                     <div class="user_part">$User.SelectedTop.Image</div>
